@@ -136,7 +136,7 @@ abstract class DTO {
             // If it's an array of DTOs
             } else if (is_array($this->{$property->name})
                     && count($this->{$property->name}) > 0
-                    && $this->{$property->name}[0] instanceof DTO) {
+                    && ($this->{$property->name}[0] ?? null) instanceof DTO) {
                 $var = array();
                 // Get the vars for each
                 foreach ($this->{$property->name} as $i => $v) {
