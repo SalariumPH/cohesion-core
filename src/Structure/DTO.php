@@ -130,6 +130,8 @@ abstract class DTO {
                 if (!isset($previousDTOs[spl_object_hash($this->{$property->name})])) {
                     // Get it's vars
                     $var = $this->{$property->name}->getVarsWithoutCircularReferences($showNulls, $previousDTOs);
+                } else {
+                    $var = null;
                 }
             // If it's an array of DTOs
             } else if (is_array($this->{$property->name})
