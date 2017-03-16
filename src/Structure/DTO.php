@@ -156,6 +156,7 @@ abstract class DTO {
                 $vars[$this->camelToUnderscore($property->name)] = $var;
             }
         }
+        unset($previousDTOs[spl_object_hash($this)]);
         return $vars;
     }
 
